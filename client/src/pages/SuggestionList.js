@@ -20,7 +20,7 @@ function SuggestionList() {
   useEffect(() => {
     const fetchSuggestions = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/suggestions');
+        const response = await axios.get('/api/suggestions');
         setSuggestions(response.data);
         setLoading(false);
       } catch (err) {
