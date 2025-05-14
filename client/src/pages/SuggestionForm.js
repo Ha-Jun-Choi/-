@@ -32,7 +32,7 @@ function SuggestionForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/suggestions', formData);
+      await axios.post('/api/suggestions', formData);
       setSuccess(true);
       setTimeout(() => {
         navigate('/suggestions');
