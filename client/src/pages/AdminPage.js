@@ -39,7 +39,7 @@ function AdminPage() {
 
   const fetchSuggestions = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/suggestions');
+      const response = await axios.get('/api/suggestions');
       setSuggestions(response.data);
       setLoading(false);
     } catch (err) {
@@ -60,7 +60,7 @@ function AdminPage() {
 
   const handleStatusChange = async (suggestionId, newStatus) => {
     try {
-      await axios.patch(`http://localhost:5000/api/suggestions/${suggestionId}`, {
+      await axios.patch(`/api/suggestions/${suggestionId}`, {
         status: newStatus
       });
       fetchSuggestions();
@@ -71,7 +71,7 @@ function AdminPage() {
 
   const handleDelete = async (suggestionId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/suggestions/${suggestionId}`);
+      await axios.delete(`/api/suggestions/${suggestionId}`);
       fetchSuggestions();
     } catch (err) {
       setError('삭제에 실패했습니다.');
@@ -80,7 +80,7 @@ function AdminPage() {
 
   const handleResponseSubmit = async () => {
     try {
-      await axios.patch(`http://localhost:5000/api/suggestions/${selectedSuggestion._id}`, {
+      await axios.patch(`/api/suggestions/${selectedSuggestion._id}`, {
         response,
         status
       });
