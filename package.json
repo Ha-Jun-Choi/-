@@ -4,7 +4,7 @@
   "description": "중고등학생을 위한 온라인 건의함 서비스",
   "main": "server.js",
   "scripts": {
-    "start": "npm --prefix ./client starts",
+    "start": "npm --prefix ./client start",
     "dev": "nodemon server.js",
     "client": "cd client && npm start",
     "dev:full": "concurrently \"npm run dev\" \"npm run client\""
