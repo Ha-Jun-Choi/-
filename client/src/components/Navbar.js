@@ -18,6 +18,9 @@ function Navbar() {
           <Button color="inherit" component={RouterLink} to="/suggestions/new">
             건의하기
           </Button>
+          <Button color="inherit" component={RouterLink} to="/notices"> {/* 공지사항 링크 추가 */}
+            공지사항
+          </Button>
           <Button color="inherit" component={RouterLink} to="/admin">
             관리자
           </Button>
@@ -30,4 +33,4 @@ function Navbar() {
   );
 }
 
-export default Navbar; 
+export default Navbar;
