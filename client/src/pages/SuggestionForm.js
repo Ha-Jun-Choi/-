@@ -17,8 +17,6 @@ function SuggestionForm() {
     title: '',
     content: '',
     author: '',
-    grade: '',  // 추가
-    class: ''   // 추가
   });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
@@ -114,25 +112,6 @@ function SuggestionForm() {
             label="작성자"
             name="author"
             value={formData.author}
-            onChange={handleChange}
-          />
-
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            label="학년"
-            name="grade"
-            value={formData.grade}
-            onChange={handleChange}
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            label="반"
-            name="class"
-            value={formData.class}
             onChange={handleChange}
           />
 
