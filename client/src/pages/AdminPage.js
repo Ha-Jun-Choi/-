@@ -39,6 +39,7 @@ function AdminPage() {
 
   const fetchSuggestions = async () => {
     try {
+      // 변경 전: http://localhost:5000/api/suggestions
       const response = await axios.get('/api/suggestions');
       setSuggestions(response.data);
       setLoading(false);
@@ -60,6 +61,7 @@ function AdminPage() {
 
   const handleStatusChange = async (suggestionId, newStatus) => {
     try {
+      // 변경 전: http://localhost:5000/api/suggestions/${suggestionId}
       await axios.patch(`/api/suggestions/${suggestionId}`, {
         status: newStatus
       });
@@ -71,6 +73,7 @@ function AdminPage() {
 
   const handleDelete = async (suggestionId) => {
     try {
+      // 변경 전: http://localhost:5000/api/suggestions/${suggestionId}
       await axios.delete(`/api/suggestions/${suggestionId}`);
       fetchSuggestions();
     } catch (err) {
@@ -80,6 +83,7 @@ function AdminPage() {
 
   const handleResponseSubmit = async () => {
     try {
+      // 변경 전: http://localhost:5000/api/suggestions/${selectedSuggestion._id}
       await axios.patch(`/api/suggestions/${selectedSuggestion._id}`, {
         response,
         status
@@ -259,4 +263,4 @@ const getStatusLabel = (status) => {
   }
 };
 
-export default AdminPage; 
+export default AdminPage;
