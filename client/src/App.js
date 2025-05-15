@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import SuggestionForm from './pages/SuggestionForm';
 import SuggestionList from './pages/SuggestionList';
 import AdminPage from './pages/AdminPage';
+import Guidelines from './pages/Guidelines';
 
 const theme = createTheme({
   palette: {
@@ -146,11 +147,14 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
-        <Navbar />
+        <AppBar position="static">
+          <Navbar />
+        </AppBar>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/suggestions/new" element={<SuggestionForm />} />
           <Route path="/suggestions" element={<SuggestionList />} />
+          <Route path="/suggestions/new" element={<SuggestionForm />} />
+          <Route path="/guidelines" element={<Guidelines />} />
           <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </Router>
