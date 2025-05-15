@@ -20,6 +20,7 @@ function SuggestionList() {
   useEffect(() => {
     const fetchSuggestions = async () => {
       try {
+        // 변경 전: http://localhost:5000/api/suggestions
         const response = await axios.get('/api/suggestions');
         setSuggestions(response.data);
         setLoading(false);
@@ -135,4 +136,4 @@ function SuggestionList() {
   );
 }
 
-export default SuggestionList; 
+export default SuggestionList;
