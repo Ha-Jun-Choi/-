@@ -16,7 +16,9 @@ function SuggestionForm() {
   const [formData, setFormData] = useState({
     title: '',
     content: '',
-    author: ''
+    author: '',
+    grade: '',  // 추가
+    class: ''   // 추가
   });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
@@ -32,13 +34,34 @@ function SuggestionForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/suggestions', formData);
+      if (!formData.title.trim() || !formData.content.trim() || !formData.author.trim()) {
+        setError('제목, 내용, 작성자는 필수 입력 항목입니다.');
+        return;
+      }
+      
+      // 서버가 실행 중인지 확인
+      try {
+        await axios.get('/api/suggestions');
+      } catch (err) {
+        setError('서버에 연결할 수 없습니다. 서버가 실행 중인지 확인해주세요.');
+        return;
+      }
+
+      // axios 요청에서 전체 URL 대신 상대 경로 사용
+      const response = await axios.post('/api/suggestions', formData);  // response 변수 추가
+      
+      console.log('서버 응답:', response.data);
       setSuccess(true);
       setTimeout(() => {
         navigate('/suggestions');
       }, 2000);
     } catch (err) {
-      setError('건의사항 제출에 실패했습니다. 다시 시도해주세요.');
+      console.error('에러 상세:', err);
+      if (!err.response) {
+        setError('서버에 연결할 수 없습니다. 서버가 실행 중인지 확인해주세요.');
+      } else {
+        setError(err.response?.data?.message || '건의사항 제출에 실패했습니다. 다시 시도해주세요.');
+      }
     }
   };
 
@@ -94,6 +117,25 @@ function SuggestionForm() {
             onChange={handleChange}
           />
 
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            label="학년"
+            name="grade"
+            value={formData.grade}
+            onChange={handleChange}
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            label="반"
+            name="class"
+            value={formData.class}
+            onChange={handleChange}
+          />
+
           <Box sx={{ mt: 3, display: 'flex', justifyContent: 'flex-end', gap: 2 }}>
             <Button
               variant="outlined"
@@ -114,4 +156,4 @@ function SuggestionForm() {
   );
 }
 
-export default SuggestionForm; 
+export default SuggestionForm;
