@@ -21,6 +21,9 @@ function Navbar() {
           <Button color="inherit" component={RouterLink} to="/admin">
             관리자
           </Button>
+          <Button color="inherit" component={RouterLink} to="/guidelines">
+            주의사항
+          </Button>
         </Toolbar>
       </Container>
     </AppBar>
