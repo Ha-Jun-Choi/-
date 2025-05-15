@@ -18,8 +18,6 @@ router.post('/', async (req, res) => {
     title: req.body.title,
     content: req.body.content,
     author: req.body.author,
-    grade: req.body.grade,
-    class: req.body.class
   });
 
   try {
