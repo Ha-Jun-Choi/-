@@ -18,7 +18,7 @@ const Guidelines = () => {
             </ListItemIcon>
             <ListItemText 
               primary="개인정보 보호"
-              secondary="다른 학생이나 교직원의 실명을 언급하지 마세요. 필요한 경우 직책이나 역할로 표현해주세요."
+              secondary="다른 학생이나 교직원을 사칭하지 마세요. 사칭시 처벌 받을 수 있습니다."
             />
           </ListItem>
 
