@@ -7,6 +7,7 @@ const path = require('path');
 require('dotenv').config();
 
 const suggestionsRouter = require('./routes/suggestions');
+const noticesRouter = require('./routes/notices'); // notices 라우터 불러오기
 
 const app = express();
 
@@ -27,6 +28,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/mind-voic
 
 // API 라우트
 app.use('/api/suggestions', suggestionsRouter);
+app.use('/api/notices', noticesRouter); // /api/notices 경로로 오는 요청을 noticesRouter가 처리하도록 설정
 
 // 프로덕션 환경에서 React 앱 서빙
 if (process.env.NODE_ENV === 'production') {
