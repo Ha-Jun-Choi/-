@@ -147,9 +147,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
-        <AppBar position="static">
-          <Navbar />
-        </AppBar>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/suggestions" element={<SuggestionList />} />
