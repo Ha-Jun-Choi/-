@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // MongoDB 연결
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/mind-voice-box', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/mind-voice-box', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
@@ -45,7 +45,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // 포트 설정
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;  // 5000에서 5001로 변경
 app.listen(PORT, () => {
   console.log(`서버가 포트 ${PORT}에서 실행 중입니다.`);
 });
