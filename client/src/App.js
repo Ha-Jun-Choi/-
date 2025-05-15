@@ -8,6 +8,7 @@ import SuggestionForm from './pages/SuggestionForm';
 import SuggestionList from './pages/SuggestionList';
 import AdminPage from './pages/AdminPage';
 import Guidelines from './pages/Guidelines';
+import NoticeList from './pages/NoticeList'; // NoticeList 컴포넌트 임포트
 
 const theme = createTheme({
   palette: {
@@ -154,6 +155,7 @@ function App() {
           <Route path="/suggestions/new" element={<SuggestionForm />} />
           <Route path="/guidelines" element={<Guidelines />} />
           <Route path="/admin" element={<AdminPage />} />
+          <Route path="/notices" element={<NoticeList />} /> {/* 공지사항 라우트 추가 */}
         </Routes>
       </Router>
     </ThemeProvider>
