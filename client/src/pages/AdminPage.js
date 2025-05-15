@@ -83,17 +83,6 @@ function AdminPage() {
     }
   };
 
-  const handleStatusChange = async (suggestionId, newStatus) => {
-    try {
-      await axios.patch(`/api/suggestions/${suggestionId}`, {
-        status: newStatus
-      });
-      fetchSuggestions();
-    } catch (err) {
-      setError('상태 변경에 실패했습니다.');
-    }
-  };
-
   const handleDelete = async (suggestionId) => {
     try {
       await axios.delete(`/api/suggestions/${suggestionId}`);
