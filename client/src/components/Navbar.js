@@ -1,10 +1,10 @@
-import React, { useState } from 'react'; // useState 임포트
-import { AppBar, Toolbar, Typography, Button, Container, Box, IconButton, Menu, MenuItem } from '@mui/material'; // Box, IconButton, Menu, MenuItem 임포트 추가
-import MenuIcon from '@mui/icons-material/Menu'; // 메뉴 아이콘 임포트
+import React, { useState } from 'react';
+import { AppBar, Toolbar, Typography, Button, Container, Box, IconButton, Menu, MenuItem } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 import { Link as RouterLink } from 'react-router-dom';
 
 function Navbar() {
-  const [anchorElNav, setAnchorElNav] = useState(null); // 메뉴 상태 관리
+  const [anchorElNav, setAnchorElNav] = useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -26,7 +26,7 @@ function Navbar() {
   return (
     <AppBar position="static">
       <Container>
-        <Toolbar disableGutters> {/* disableGutters 추가 */}
+        <Toolbar disableGutters>
           {/* 데스크탑 로고 (왼쪽) */}
           <Typography
             variant="h6"
@@ -35,35 +35,51 @@ function Navbar() {
             to="/"
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex' }, // md 이상에서만 표시
-              // flexGrow: 1 제거하여 왼쪽에 고정
+              display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              alignItems: 'center', // 로고와 텍스트를 세로 중앙 정렬
             }}
           >
+            <img
+              src="/logo512.png"
+              alt="마음의 소리함 로고"
+              style={{
+                height: '64px',
+                marginRight: '10px'
+              }}
+            />
             마음의 소리함
           </Typography>
 
           {/* 모바일 로고 (왼쪽) */}
           <Typography
-            variant="h5"
+            variant="h6"
             noWrap
             component={RouterLink}
             to="/"
             sx={{
               mr: 2,
-              display: { xs: 'flex', md: 'none' }, // xs에서만 표시
-              // flexGrow: 1 제거하여 왼쪽에 고정
+              display: { xs: 'flex', md: 'none' },
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              alignItems: 'center', // 로고와 텍스트를 세로 중앙 정렬
             }}
           >
+            <img
+              src="/logo512.png"
+              alt="마음의 소리함 로고"
+              style={{
+                height: '64px',
+                marginRight: '8px'
+              }}
+            />
             마음의 소리함
           </Typography>
 
