@@ -9,6 +9,7 @@ const FloatingButton = styled(IconButton)(({ theme }) => ({
   transform: 'translateY(-50%)',
   backgroundColor: 'white',
   boxShadow: '0 2px 12px rgba(0,0,0,0.15)',
+  zIndex: 9999, // 다른 요소들보다 앞에 표시되도록 z-index 추가
   '&:hover': {
     backgroundColor: '#f5f5f5',
   },
@@ -20,7 +21,7 @@ function FloatingLogo() {
   };
 
   return (
-    <Box>
+    <Box sx={{ zIndex: 9999 }}> {/* Box 컴포넌트에도 z-index 추가 */}
       <Tooltip title="KISY 홈페이지 방문하기" placement="left">
         <FloatingButton
           onClick={handleClick}
@@ -30,8 +31,8 @@ function FloatingLogo() {
             src="/logo512.png"
             alt="KISY 로고"
             style={{
-              width: '50px',
-              height: '50px',
+              width: '40px',
+              height: '40px',
               objectFit: 'contain'
             }}
           />
