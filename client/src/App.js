@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Navbar from './components/Navbar';
+import FloatingLogo from './components/FloatingLogo'; // 추가
 import Home from './pages/Home';
 import SuggestionForm from './pages/SuggestionForm';
 import SuggestionList from './pages/SuggestionList';
@@ -149,6 +150,7 @@ function App() {
       <CssBaseline />
       <Router>
         <Navbar />
+        <FloatingLogo /> {/* 추가 */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/suggestions" element={<SuggestionList />} />
