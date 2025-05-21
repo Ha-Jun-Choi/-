@@ -76,7 +76,7 @@ function AdminPage() {
   const handleLogin = () => {
     // 실제로는 서버에서 인증을 처리해야 합니다
     // 아래에서 비밀번호 변경
-    if (password === 'gram#') {
+    if (password === 'gram#admin0520') {
       setIsAuthenticated(true);
     } else {
       setError('비밀번호가 틀렸습니다.');
