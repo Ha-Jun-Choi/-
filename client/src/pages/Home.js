@@ -15,7 +15,7 @@ function Home() {
         
         <Paper elevation={3} sx={{ p: 4, my: 4 }}>
           <Typography variant="body1" paragraph>
-            마음의 소리함은 학생들의 의견을 듣고 학교 발전을 위한 건의사항을 수렴하는 공간입니다.
+            마음의 소리함은 학생들의 의견을 듣고 학교 발전을 위한 건의사항을 수렴하는 공간입니다.<br></br>
             여러분의 소중한 의견이 학교를 더 나은 곳으로 만드는 데 큰 도움이 됩니다.
           </Typography>
           
