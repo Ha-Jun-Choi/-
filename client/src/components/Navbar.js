@@ -19,8 +19,9 @@ function Navbar() {
     { name: '건의사항 목록', path: '/suggestions' },
     { name: '건의하기', path: '/suggestions/new' },
     { name: '공지사항', path: '/notices' },
-    { name: '관리자', path: '/admin' },
+    { name: '공모전', path: '/contests' },
     { name: '주의사항', path: '/guidelines' },
+    { name: '관리자', path: '/admin' }
   ];
 
   return (
@@ -36,12 +37,12 @@ function Navbar() {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
+              fontFamily: '"Pretendard", "Noto Sans KR", sans-serif',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
-              alignItems: 'center', // 로고와 텍스트를 세로 중앙 정렬
+              alignItems: 'center',
             }}
           >
             <img
@@ -64,12 +65,12 @@ function Navbar() {
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
-              fontFamily: 'monospace',
+              fontFamily: '"Pretendard", "Noto Sans KR", sans-serif',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
-              alignItems: 'center', // 로고와 텍스트를 세로 중앙 정렬
+              alignItems: 'center',
             }}
           >
             <img
@@ -83,16 +84,15 @@ function Navbar() {
             마음의 소리함
           </Typography>
 
-          {/* 로고와 메뉴 사이에 공간을 채워 메뉴를 오른쪽으로 밀어내는 Box */}
           <Box sx={{ flexGrow: 1 }} />
 
           {/* 데스크탑 메뉴 버튼 (오른쪽) */}
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}> {/* md 이상에서만 표시 */}
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page.name}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: '#333', display: 'block' }} // 글자색 유지
+                sx={{ my: 2, color: '#333', display: 'block' }}
                 component={RouterLink}
                 to={page.path}
               >
@@ -102,7 +102,7 @@ function Navbar() {
           </Box>
 
           {/* 모바일 메뉴 아이콘 (오른쪽) */}
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}> {/* xs에서만 표시 */}
+          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -133,7 +133,9 @@ function Navbar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page.name} onClick={handleCloseNavMenu} component={RouterLink} to={page.path}>
-                  <Typography textAlign="center">{page.name}</Typography>
+                  <Typography textAlign="center">
+                    {page.name}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
