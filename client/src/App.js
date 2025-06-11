@@ -3,15 +3,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Navbar from './components/Navbar';
-import FloatingLogo from './components/FloatingLogo';
+import FloatingLogo from './components/FloatingLogo'; // 추가
 import Home from './pages/Home';
 import SuggestionForm from './pages/SuggestionForm';
 import SuggestionList from './pages/SuggestionList';
 import AdminPage from './pages/AdminPage';
 import Guidelines from './pages/Guidelines';
-import NoticeList from './pages/NoticeList';
-import ContestPage from './pages/ContestPage';
-import ContestDetailPage from './pages/ContestDetailPage';
+import NoticeList from './pages/NoticeList'; // NoticeList 컴포넌트 임포트
 
 const theme = createTheme({
   palette: {
@@ -152,16 +150,14 @@ function App() {
       <CssBaseline />
       <Router>
         <Navbar />
-        <FloatingLogo />
+        <FloatingLogo /> {/* 추가 */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/suggestions" element={<SuggestionList />} />
           <Route path="/suggestions/new" element={<SuggestionForm />} />
           <Route path="/guidelines" element={<Guidelines />} />
           <Route path="/admin" element={<AdminPage />} />
-          <Route path="/notices" element={<NoticeList />} />
-          <Route path="/contests" element={<ContestPage />} />
-          <Route path="/contests/:id" element={<ContestDetailPage />} />
+          <Route path="/notices" element={<NoticeList />} /> {/* 공지사항 라우트 추가 */}
         </Routes>
       </Router>
     </ThemeProvider>
