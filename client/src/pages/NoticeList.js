@@ -7,8 +7,7 @@ import {
   Card,
   CardContent,
   CircularProgress,
-  Alert,
-  CardMedia
+  Alert
 } from '@mui/material';
 import axios from 'axios';
 
@@ -76,14 +75,6 @@ function NoticeList() {
                   <Typography variant="body1" paragraph>
                     {notice.content}
                   </Typography>
-                  {notice.imageUrl && (
-                    <CardMedia
-                      component="img"
-                      height="140"
-                      image={notice.imageUrl}
-                      alt={notice.title}
-                    />
-                  )}
                 </CardContent>
               </Card>
             ))}
