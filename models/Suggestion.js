@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
 
-// 기존 모델 삭제 (인덱스 제거를 위해)
-mongoose.models = {};
-
 const suggestionSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -28,14 +25,6 @@ const suggestionSchema = new mongoose.Schema({
     type: String,
     default: ''
   },
-  likes: {
-    type: [String],
-    default: []
-  },
-  dislikes: {
-    type: [String],
-    default: []
-  },
   createdAt: {
     type: Date,
     default: Date.now
@@ -44,11 +33,6 @@ const suggestionSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   }
-}, {
-  autoIndex: false // 자동 인덱스 생성 비활성화
 });
-
-// likes 필드의 인덱스 제거
-suggestionSchema.index({ likes: 1 }, { unique: false });
 
 module.exports = mongoose.model('Suggestion', suggestionSchema); 

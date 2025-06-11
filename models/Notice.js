@@ -9,10 +9,6 @@ const noticeSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  imageUrl: {
-    type: String,
-    default: ''
-  },
   author: {
     type: String,
     default: '관리자'
